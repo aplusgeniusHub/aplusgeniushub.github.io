@@ -1,21 +1,37 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FinyxFin™ Terms of Use</title>
     <style>
-        /* General Styles */
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f5f5f7;
-            color: #1c1c1e;
-            line-height: 1.6;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #667eea;
+            --secondary-color: #764ba2;
+            --global-bg: #F8F9FB;
+            --card-bg: #FFFFFF;
+            --text-primary: #1a1a2e;
+            --text-secondary: #64748b;
+            --border-color: #e2e8f0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: var(--global-bg);
+            color: var(--text-primary);
+            line-height: 1.7;
         }
 
         a {
-            color: #0071e3;
+            color: var(--primary-color);
             text-decoration: none;
         }
 
@@ -23,132 +39,197 @@
             text-decoration: underline;
         }
 
-        /* Container */
         .container {
-            max-width: 720px;
-            margin: 60px auto;
-            padding: 0 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
         }
 
-        /* Headings */
-        h1 {
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 50px 40px;
+            text-align: center;
+        }
+
+        .header h1 {
             font-size: 2.2rem;
-            font-weight: 600;
+            font-weight: 700;
             margin-bottom: 8px;
         }
 
-        h2, h3 {
-            font-weight: 600;
-            margin-top: 40px;
-            margin-bottom: 12px;
-            font-size: 1.2rem;
-        }
-
-        h4 {
-            font-weight: 500;
-            margin-top: 30px;
-            margin-bottom: 8px;
+        .header p {
+            opacity: 0.9;
             font-size: 1rem;
         }
 
-        /* Sections */
-        .section {
+        .content {
+            padding: 40px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
             margin-bottom: 30px;
         }
 
-        /* Subtle divider */
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .section {
+            margin-bottom: 32px;
+        }
+
+        h2 {
+            font-weight: 600;
+            margin-bottom: 12px;
+            font-size: 1.15rem;
+            color: var(--primary-color);
+        }
+
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+            font-size: 0.98rem;
+        }
+
         .divider {
             height: 1px;
-            background-color: #d2d2d7;
-            margin: 40px 0;
+            background: var(--border-color);
+            margin: 30px 0;
             border: none;
         }
 
-        /* Footer */
         .footer {
+            background: var(--global-bg);
+            padding: 30px 40px;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer p {
+            color: var(--text-secondary);
             font-size: 0.9rem;
-            color: #6e6e73;
-            margin-top: 60px;
+            margin: 0;
+        }
+
+        .tm {
+            font-size: 0.7em;
+            vertical-align: super;
+        }
+
+        @media (max-width: 600px) {
+            .header {
+                padding: 35px 25px;
+            }
+
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .content {
+                padding: 25px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>FinyxFin<span style="font-size:0.8rem; vertical-align: super;">™</span> Terms of Use</h1>
-        <p>Effective Date: January 12, 2025</p>
-        
-        <hr class="divider">
-
-        <div class="section">
-            <h3>1. Acceptance</h3>
-            <p>By downloading, installing, or using FinyxFin<span style="font-size:0.8rem; vertical-align: super;">™</span> (the “App”), you agree to these Terms of Use ("Terms"). If you do not agree, do not use the App.</p>
+        <div class="header">
+            <h1>FinyxFin<span class="tm">™</span> Terms of Use</h1>
+            <p>Effective Date: January 12, 2026</p>
         </div>
 
-        <div class="section">
-            <h3>2. License</h3>
-            <p>Subject to these Terms, we grant you a limited, non-exclusive, non-transferable license to use the App on devices you own or control.</p>
-        </div>
+        <div class="content">
+            <a href="index.html" class="back-link">← Back to FinyxFin</a>
 
-        <div class="section">
-            <h3>3. User Data and Responsibility</h3>
-            <p>You are responsible for the accuracy and legality of the data you enter into the App. You control all data stored locally and can export or delete it. We are not responsible for any decisions made based on App content.</p>
-        </div>
+            <div class="section">
+                <h2>1. Acceptance</h2>
+                <p>By downloading, installing, or using FinyxFin<span class="tm">™</span> (the "App"), you agree to these Terms of Use ("Terms"). If you do not agree, do not use the App.</p>
+            </div>
 
-        <div class="section">
-            <h3>4. Payments & Subscriptions</h3>
-            <p>FinyxFin<span style="font-size:0.8rem; vertical-align: super;">™</span> may offer paid features via one-time purchase or subscription through the App Store. Payments are handled by Apple and subject to Apple’s billing practices. Refunds are handled by Apple per their policies; contact Apple Support for refund requests.</p>
-        </div>
+            <div class="section">
+                <h2>2. License</h2>
+                <p>Subject to these Terms, we grant you a limited, non-exclusive, non-transferable license to use the App on devices you own or control.</p>
+            </div>
 
-        <div class="section">
-            <h3>5. Intellectual Property</h3>
-            <p>
-                The App and all related content, software, designs, and documentation are the property of FinyxFin or its licensors and are protected by applicable copyright and other laws.
-            </p>
-            <p style="margin-top:0.75rem;">
-                The name FinyxFin<span style="font-size:0.8rem; vertical-align: super;">™</span> and the associated FinyxFin logo are trademarks of their owner, with trademark applications filed in India. You may not use the FinyxFin name, the FinyxFin logo, or any confusingly similar marks without prior written permission.
-            </p>
-            <p style="margin-top:0.75rem;">
-                You may not copy, modify, distribute, reverse engineer, or create derivative works from the App except as expressly allowed by these Terms or applicable law.
-            </p>
-        </div>
+            <div class="section">
+                <h2>3. User Data and Responsibility</h2>
+                <p>You are responsible for the accuracy and legality of the data you enter into the App. You control all data stored locally and can export or delete it. We are not responsible for any decisions made based on App content.</p>
+            </div>
 
-        <div class="section">
-            <h3>6. Disclaimer of Warranties</h3>
-            <p>The App is provided "as is" and "as available" without warranties of any kind. We do not warrant that the App will be uninterrupted or error-free.</p>
-        </div>
+<div class="section">
+                <h2>4. Data Storage, iCloud Sync, Backups &amp; Data Loss</h2>
+                <p>FinyxFin stores your information locally on your device and, if enabled, syncs it using Apple’s iCloud services. You are responsible for maintaining access to your Apple ID and ensuring your device and iCloud settings are configured as you intend.</p>
+                <p><strong>Backups:</strong> The App may provide export, backup, and restore tools for your convenience. You are responsible for creating, verifying, and securely storing backups. We do not guarantee that backups or restores will be available, complete, or error-free in every scenario.</p>
+                <p><strong>Data loss disclaimer:</strong> To the maximum extent permitted by law, we are not responsible for any loss, corruption, deletion, or failure to store, restore, or sync data (including due to device issues, operating system changes, iCloud/Apple service issues, user error, storage limitations, third‑party actions, or any other cause). You agree that your use of the App is at your sole risk.</p>
+            </div>
 
-        <div class="section">
-            <h3>7. Limitation of Liability</h3>
-            <p>To the maximum extent permitted by law, FinyxFin and its affiliates will not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of the App.</p>
-        </div>
+            <div class="section">
+                <h2>5. No Financial, Tax, or Legal Advice</h2>
+                <p>FinyxFin provides tools to help you organize and understand information you enter. The App does not provide financial, tax, investment, accounting, or legal advice. Any insights, analytics, or summaries are for informational purposes only. You are responsible for your financial decisions and should consult qualified professionals when appropriate.</p>
+            </div>
 
-        <div class="section">
-            <h3>8. Termination</h3>
-            <p>We may suspend or terminate access to the App if you violate these Terms. You can stop using the App at any time and delete it from your device.</p>
-        </div>
+            <div class="section">
+                <h2>6. Payments & Subscriptions</h2>
+                <p>FinyxFin<span class="tm">™</span> may offer paid features via one-time purchase or subscription through the App Store. Payments are handled by Apple and subject to Apple's billing practices. Refunds are handled by Apple per their policies; contact Apple Support for refund requests.</p>
+            </div>
 
-        <div class="section">
-            <h3>9. Governing Law</h3>
-            <p>These Terms are governed by the laws of the jurisdiction in which FinyxFin operates in India. Any disputes will be resolved in the appropriate courts of that jurisdiction.</p>
-        </div>
+            <div class="section">
+                <h2>7. Intellectual Property</h2>
+                <p>The App and all related content, software, designs, and documentation are the property of FinyxFin or its licensors and are protected by applicable copyright and other laws.</p>
+                <p>The name FinyxFin<span class="tm">™</span> and the associated FinyxFin logo are trademarks of their owner, with trademark applications filed in India. You may not use the FinyxFin name, the FinyxFin logo, or any confusingly similar marks without prior written permission.</p>
+                <p>You may not copy, modify, distribute, reverse engineer, or create derivative works from the App except as expressly allowed by these Terms or applicable law.</p>
+            </div>
 
-        <div class="section">
-            <h3>10. Changes</h3>
-            <p>We may update these Terms from time to time. Continued use of the App after changes constitutes acceptance.</p>
-        </div>
+            <div class="section">
+                <h2>8. Disclaimer of Warranties</h2>
+                <p>The App is provided "as is" and "as available" without warranties of any kind. We do not warrant that the App will be uninterrupted or error-free.</p>
+            </div>
 
-        <div class="section">
-            <h3>11. Apple Terms Reference</h3>
-            <p>By using this App, you also agree to Apple’s <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank">App Store Terms and Apple Developer Agreement</a>.</p>
-        </div>
+            <div class="section">
+                <h2>9. Limitation of Liability</h2>
+                <p>To the maximum extent permitted by law, FinyxFin and its affiliates will not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of the App.</p>
+            </div>
 
-        <div class="section">
-            <h4>Contact</h4>
-            <p>For questions about these Terms, contact <a href="mailto:support.finyx@icloud.com">support.finyx@icloud.com</a>.</p>
+            <div class="section">
+                <h2>10. Termination</h2>
+                <p>We may suspend or terminate access to the App if you violate these Terms. You can stop using the App at any time and delete it from your device.</p>
+            </div>
+
+            <div class="section">
+                <h2>11. Governing Law</h2>
+<p>These Terms are governed by and construed in accordance with the laws of India, without regard to conflict of law principles.</p>
+            </div>
+
+            <div class="section">
+                <h2>12. Changes</h2>
+                <p>We may update these Terms from time to time. Continued use of the App after changes constitutes acceptance.</p>
+            </div>
+
+            <div class="section">
+                <h2>13. Apple Terms Reference</h2>
+                <p>By using this App, you also agree to Apple's <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank">App Store Terms and Apple Developer Agreement</a>.</p>
+            </div>
+
+            <hr class="divider">
+
+            <div class="section">
+                <h2>Contact</h2>
+                <p>For questions about these Terms, contact <a href="mailto:support@finyxfin.app">support@finyxfin.app</a>.</p>
+            </div>
         </div>
 
         <div class="footer">
-            &copy; 2025 FinyxFin<span style="font-size:0.8rem; vertical-align: super;">™</span>. All rights reserved.
+            <p>&copy; 2025 FinyxFin<span class="tm">™</span>. All rights reserved.</p>
         </div>
     </div>
 </body>

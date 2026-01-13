@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy - FinyxFin™</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary-color: #667eea;
+      --secondary-color: #764ba2;
+      --accent-color: #4facfe;
+      --global-bg: #F8F9FB;
+      --card-bg: #FFFFFF;
+      --text-primary: #1a1a2e;
+      --text-secondary: #64748b;
+      --text-muted: #94a3b8;
+      --border-color: #e2e8f0;
+      --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+      --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: var(--global-bg);
+      color: var(--text-primary);
+      line-height: 1.65;
+      padding: 22px;
+    }
+
+    .topbar {
+      max-width: 980px;
+      margin: 0 auto 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .back {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      font-weight: 700;
+      color: var(--text-primary);
+      padding: 10px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      background: var(--card-bg);
+      box-shadow: var(--shadow-sm);
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .back:hover {
+      background: var(--global-bg);
+      transform: translateX(-2px);
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 14px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      background: rgba(255, 255, 255, 0.18);
+      color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .container {
+      max-width: 980px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border-color);
+    }
+
+    .header {
+      padding: 44px 28px;
+      text-align: center;
+      color: white;
+      background: linear-gradient(135deg, #22c55e 0%, #3b82f6 100%);
+    }
+
+    .header h1 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+      text-shadow: 0 2px 18px rgba(0,0,0,0.22);
+    }
+
+    .header p {
+      font-size: 1.05rem;
+      opacity: 0.92;
+      max-width: 820px;
+      margin: 0 auto;
+      color: rgba(255, 255, 255, 0.92);
+      text-shadow: 0 2px 16px rgba(0,0,0,0.18);
+    }
+
+    .content {
+      padding: 30px 26px 34px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 18px 18px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 14px;
+    }
+
+    .kpi {
+      background: #F8F9FB;
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 16px;
+    }
+
+    .kpi h3 {
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+
+    .kpi p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      margin: 22px 0 10px;
+      letter-spacing: -0.01em;
+    }
+
+    p {
+      color: var(--text-secondary);
+      margin-bottom: 12px;
+      font-size: 1rem;
+    }
+
+    ul {
+      margin: 10px 0 14px 22px;
+      color: var(--text-secondary);
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    .toc {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+      justify-content: center;
+    }
+
+    .toc a {
+      text-decoration: none;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.95);
+      background: rgba(255, 255, 255, 0.16);
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      padding: 9px 14px;
+      border-radius: 999px;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .toc a:hover {
+      transform: translateY(-1px);
+      background: rgba(255, 255, 255, 0.22);
+    }
+
+    .callout {
+      border-left: 4px solid var(--primary-color);
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%);
+      padding: 14px 14px;
+      border-radius: 14px;
+      margin: 14px 0;
+    }
+
+    .callout strong {
+      color: var(--text-primary);
+    }
+
+    .muted {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+    }
+
+    .contact {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .mailto {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      font-weight: 700;
+      color: white;
+      background: var(--gradient-primary);
+      padding: 12px 14px;
+      border-radius: 14px;
+      width: fit-content;
+      box-shadow: 0 6px 20px rgba(102, 126, 234, 0.25);
+      transition: transform 0.2s ease;
+    }
+
+    .mailto:hover {
+      transform: translateY(-2px);
+    }
+
+    .footer-note {
+      margin-top: 18px;
+      border-top: 1px solid var(--border-color);
+      padding-top: 14px;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="topbar">
+    <a class="back" href="index.html#privacy" aria-label="Back to FinyxFin website">
+      ← Back
+    </a>
+    <div class="muted">Last updated: January 12, 2026</div>
+  </div>
+
+  <div class="container">
+    <div class="header">
+      <h1>Your Privacy in FinyxFin</h1>
+      <p>Your financial data stays private, encrypted, and under your control. FinyxFin does not collect or sell your financial information.</p>
+
+      <div class="pill-row" aria-label="Privacy highlights">
+        <span class="pill">☁️ Local + iCloud</span>
+        <span class="pill">🙈 No tracking</span>
+        <span class="pill">🔒 Your data only</span>
+      </div>
+
+      <div class="toc" aria-label="Table of contents">
+        <a href="#summary">In short</a>
+        <a href="#storage">Storage</a>
+        <a href="#data">What you store</a>
+        <a href="#icloud">iCloud Sync</a>
+        <a href="#security">Security</a>
+        <a href="#imports">Imports &amp; Exports</a>
+        <a href="#permissions">Permissions</a>
+        <a href="#purchases">Payments</a>
+        <a href="#rights">Your control</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+
+    <div class="content">
+      <div id="summary" class="card">
+        <h2>In short</h2>
+        <div class="grid" role="list">
+          <div class="kpi" role="listitem">
+            <h3>We don’t collect your financial data</h3>
+            <p>FinyxFin does not run its own servers for storing your accounts, transactions, bills, loans, investments, or goals.</p>
+          </div>
+          <div class="kpi" role="listitem">
+            <h3>Your data stays in your Apple ecosystem</h3>
+            <p>Your information is stored locally on your device and synced using Apple’s iCloud services.</p>
+          </div>
+          <div class="kpi" role="listitem">
+            <h3>No ads, no trackers</h3>
+            <p>We don’t use third‑party advertising SDKs or tracking-based analytics profiles.</p>
+          </div>
+          <div class="kpi" role="listitem">
+            <h3>You stay in control</h3>
+            <p>You can edit, export, or delete your data anytime from within the app.</p>
+          </div>
+        </div>
+
+        <div class="callout">
+          <strong>Important:</strong> Anyone who can access your unlocked device or your iCloud account may be able to access your FinyxFin data. Protect your Apple ID, passcode, Face ID / Touch ID, and device security settings.
+        </div>
+      </div>
+
+      <div id="storage" class="card" style="margin-top: 16px;">
+        <h2>How your data is stored</h2>
+        <p>FinyxFin stores your data in two places:</p>
+        <ul>
+          <li><strong>On your device</strong>, inside the app’s local database.</li>
+          <li><strong>In your iCloud account</strong>, using Apple’s sync infrastructure to keep your data consistent across devices.</li>
+        </ul>
+        <p>We do not operate our own servers for storing your financial data. Your information stays within your Apple ecosystem (your devices + iCloud).</p>
+      </div>
+
+      <div id="data" class="card" style="margin-top: 16px;">
+        <h2>What data you store</h2>
+        <p>FinyxFin stores only the information you enter, such as:</p>
+        <ul>
+          <li>Accounts and balances</li>
+          <li>Income &amp; expense transactions</li>
+          <li>Bills, loans/EMIs, and payment history</li>
+          <li>Budgets and spending categories</li>
+          <li>Investments, instruments, and lots</li>
+          <li>Financial goals and progress</li>
+          <li>Notes, tags, and attachments (e.g., receipts)</li>
+        </ul>
+        <p>All of this remains associated with your device and (if enabled) your Apple ID’s iCloud storage.</p>
+      </div>
+
+      <div id="icloud" class="card" style="margin-top: 16px;">
+        <h2>iCloud sync</h2>
+        <p>FinyxFin uses iCloud sync to keep your data consistent across your Apple devices.</p>
+        <ul>
+          <li>Sync is handled by Apple’s iCloud services.</li>
+          <li>Your data is encrypted in transit and at rest by Apple’s iCloud protections.</li>
+          <li>We cannot access, read, or modify your iCloud data.</li>
+          <li>You can manage FinyxFin’s iCloud storage from: <strong>Settings → Apple ID → iCloud → Manage Storage → FinyxFin</strong>.</li>
+        </ul>
+        <div class="callout">
+          <strong>Tip:</strong> If you delete FinyxFin’s iCloud data from iCloud storage management, it can remove the synced dataset from iCloud. (Your local device data may also be removed depending on your app settings and Apple sync state.)
+        </div>
+      </div>
+
+      <div id="security" class="card" style="margin-top: 16px;">
+        <h2>Security</h2>
+        <p>Your privacy and security rely on Apple’s built-in protections:</p>
+        <ul>
+          <li>Device-level encryption and secure enclave protections</li>
+          <li>Face ID / Touch ID / passcode on supported devices</li>
+          <li>iCloud encryption for synced data</li>
+          <li>No third-party ad SDKs</li>
+        </ul>
+        <p>If you enable an in‑app lock (where supported), it adds another layer of protection on top of device security.</p>
+      </div>
+
+      <div id="imports" class="card" style="margin-top: 16px;">
+        <h2>Imports &amp; exports</h2>
+        <p>You can import and export data directly from your device:</p>
+        <ul>
+          <li>Import from CSV or other supported formats</li>
+          <li>Export accounts, transactions, budgets, investments, and more</li>
+        </ul>
+        <p>All import and export processing happens locally. Files are only saved or shared to locations you choose (e.g., Files app, iCloud Drive, email, AirDrop). We never receive copies of your exported files.</p>
+      </div>
+
+      <div id="permissions" class="card" style="margin-top: 16px;">
+        <h2>Permissions</h2>
+        <p>FinyxFin may request access to:</p>
+        <ul>
+          <li><strong>iCloud</strong> — to sync your data across devices</li>
+          <li><strong>Notifications</strong> — reminders for bills, goals, and events (optional)</li>
+          <li><strong>Files / Photos</strong> — to attach receipts or import/export data (optional)</li>
+          <li><strong>Apple Reminders</strong> — if you enable reminders integration (optional)</li>
+        </ul>
+        <p>You can change permissions anytime from your device Settings.</p>
+      </div>
+
+      <div id="purchases" class="card" style="margin-top: 16px;">
+        <h2>Payments &amp; subscriptions</h2>
+        <p>If you purchase Premium features, payments are processed by Apple (App Store / StoreKit). We do not collect your credit card details.</p>
+        <p>Apple may provide us limited purchase information needed to unlock features on your devices (for example, purchase status), but not your full payment details.</p>
+      </div>
+
+      <div id="rights" class="card" style="margin-top: 16px;">
+        <h2>Your rights &amp; control</h2>
+        <p>You stay in control of your financial data:</p>
+        <ul>
+          <li>View and edit all information inside the app</li>
+          <li>Delete individual records (accounts, transactions, etc.)</li>
+          <li>Export data for your own backups or reporting</li>
+          <li>Remove synced data by deleting FinyxFin’s iCloud storage (see iCloud section)</li>
+        </ul>
+        <p>We do not sell data. We do not share your financial records with advertisers.</p>
+      </div>
+
+      <div id="contact" class="card" style="margin-top: 16px;">
+        <h2>Contact</h2>
+        <div class="contact">
+          <p>If you have questions about privacy, data handling, or your information in FinyxFin, contact us:</p>
+          <a class="mailto" href="mailto:support@finyxfin.app" aria-label="Email FinyxFin Support">
+            ✉️ support@finyxfin.app
+          </a>
+          <div class="footer-note">
+            FinyxFin™ and the FinyxFin™ logo are trademarks with applications pending in India.
+          </div>
+        </div>
+      </div>
+
+      <p class="muted" style="margin-top: 14px;">
+        This Privacy Policy describes how the FinyxFin app handles data. If Apple changes iCloud/StoreKit behaviors, the technical details may evolve. We will update this page when needed.
+      </p>
+      <p class="muted">
+  For information about usage rules, limitations, and liability, please review our
+  <a href="terms.html">Terms of Use</a>.
+</p>
+    </div>
+  </div>
+</body>
+</html>

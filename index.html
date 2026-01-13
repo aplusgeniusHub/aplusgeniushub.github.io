@@ -12,18 +12,25 @@
         }
 
         :root {
-            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            --dark-bg: #0f0f23;
-            --card-bg: rgba(255, 255, 255, 0.05);
-            --text-primary: #ffffff;
-            --text-secondary: #a0aec0;
+            --primary-color: #667eea;
+            --secondary-color: #764ba2;
+            --accent-color: #4facfe;
+            --global-bg: #F8F9FB;
+            --card-bg: #FFFFFF;
+            --text-primary: #1a1a2e;
+            --text-secondary: #64748b;
+            --text-muted: #94a3b8;
+            --border-color: #e2e8f0;
+            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-hero: linear-gradient(180deg, #EEF1F8 0%, #F8F9FB 100%);
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.1);
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: var(--dark-bg);
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: var(--global-bg);
             color: var(--text-primary);
             line-height: 1.6;
             overflow-x: hidden;
@@ -34,11 +41,12 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(15, 15, 35, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1.5rem 5%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 0.75rem 5%;
             z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid var(--border-color);
         }
 
         nav .container {
@@ -52,37 +60,42 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 1rem;
-            font-size: 1.5rem;
-            font-weight: bold;
-            background: var(--primary-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            gap: 0.5rem;
+            text-decoration: none;
         }
 
-        .logo img {
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
+        .logo-img {
+            height: 48px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .logo .tm {
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            vertical-align: super;
+            margin-left: -2px;
         }
 
         nav ul {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 0.5rem;
         }
 
         nav a {
             color: var(--text-primary);
             text-decoration: none;
-            transition: all 0.3s;
+            transition: all 0.2s ease;
             padding: 0.5rem 1rem;
             border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 500;
         }
 
         nav a:hover {
-            background: var(--card-bg);
-            transform: translateY(-2px);
+            background: var(--global-bg);
+            color: var(--primary-color);
         }
 
         /* Hero Section */
@@ -92,23 +105,20 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 8rem 5% 4rem;
+            padding: 7rem 5% 4rem;
+            background: var(--gradient-hero);
             position: relative;
-            overflow: hidden;
         }
 
         .hero::before {
             content: '';
             position: absolute;
-            width: 500px;
-            height: 500px;
-            background: var(--primary-gradient);
-            border-radius: 50%;
-            filter: blur(150px);
-            opacity: 0.3;
-            top: -200px;
-            right: -200px;
-            animation: float 20s infinite;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(102, 126, 234, 0.15) 0%, transparent 70%);
+            top: -100px;
+            right: -100px;
+            pointer-events: none;
         }
 
         .hero::after {
@@ -116,75 +126,52 @@
             position: absolute;
             width: 400px;
             height: 400px;
-            background: var(--secondary-gradient);
-            border-radius: 50%;
-            filter: blur(150px);
-            opacity: 0.2;
-            bottom: -150px;
-            left: -150px;
-            animation: float 15s infinite reverse;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            33% { transform: translate(30px, -30px) rotate(120deg); }
-            66% { transform: translate(-20px, 20px) rotate(240deg); }
+            background: radial-gradient(circle, rgba(118, 75, 162, 0.1) 0%, transparent 70%);
+            bottom: 0;
+            left: -100px;
+            pointer-events: none;
         }
 
         .hero-content {
-            max-width: 800px;
+            max-width: 700px;
             position: relative;
             z-index: 1;
         }
 
         .app-icon-large {
-            width: 150px;
-            height: 150px;
+            width: 140px;
+            height: 140px;
             margin: 0 auto 2rem;
-            border-radius: 30px;
-            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.4);
-            animation: iconFloat 3s ease-in-out infinite;
+            border-radius: 28px;
+            box-shadow: 0 20px 50px rgba(102, 126, 234, 0.3);
+            animation: iconFloat 4s ease-in-out infinite;
+            object-fit: contain;
         }
 
         @keyframes iconFloat {
             0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+            50% { transform: translateY(-12px); }
         }
 
         h1 {
-            font-size: 3.5rem;
+            font-size: 3.2rem;
             margin-bottom: 1rem;
-            background: var(--primary-gradient);
+            background: var(--gradient-primary);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            font-weight: 800;
+            background-clip: text;
+            font-weight: 700;
+            letter-spacing: -0.02em;
         }
 
         .hero p {
-            font-size: 1.3rem;
+            font-size: 1.25rem;
             color: var(--text-secondary);
             margin-bottom: 2rem;
+            line-height: 1.7;
         }
 
-        .platform-badges {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            margin: 2rem 0;
-        }
-
-        .badge {
-            padding: 0.8rem 1.5rem;
-            background: var(--card-bg);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .cta-buttons {
+        .hero-buttons {
             display: flex;
             gap: 1rem;
             justify-content: center;
@@ -192,43 +179,52 @@
         }
 
         .btn {
-            padding: 1rem 2.5rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.875rem 1.75rem;
             border-radius: 12px;
-            text-decoration: none;
             font-weight: 600;
-            transition: all 0.3s;
-            display: inline-block;
-            border: none;
-            cursor: pointer;
             font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.2s ease;
         }
 
         .btn-primary {
-            background: var(--primary-gradient);
+            background: var(--gradient-primary);
             color: white;
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
         }
 
         .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(102, 126, 234, 0.5);
         }
 
         .btn-secondary {
             background: var(--card-bg);
-            color: white;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
         }
 
         .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateY(-3px);
+            background: var(--global-bg);
+            border-color: var(--primary-color);
         }
 
-        /* Section Styles */
+        /* App Store Badge */
+        .app-store-badge {
+            height: 54px;
+            transition: transform 0.2s ease;
+        }
+
+        .app-store-badge:hover {
+            transform: scale(1.05);
+        }
+
+        /* Sections */
         section {
-            padding: 6rem 5%;
-            position: relative;
+            padding: 5rem 5%;
         }
 
         .container {
@@ -238,310 +234,464 @@
 
         .section-header {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
         }
 
         .section-header h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            background: var(--primary-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-size: 2.25rem;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+            font-weight: 700;
         }
 
         .section-header p {
             color: var(--text-secondary);
             font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
-        /* Features Grid */
+        /* Feature Cards */
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            gap: 1.5rem;
         }
 
         .feature-card {
             background: var(--card-bg);
             padding: 2rem;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: var(--primary-gradient);
-            transform: scaleX(0);
-            transition: transform 0.3s;
+            border-radius: 16px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
         }
 
         .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        .feature-card:hover::before {
-            transform: scaleX(1);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: rgba(102, 126, 234, 0.3);
         }
 
         .feature-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--primary-gradient);
-            border-radius: 15px;
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            margin-bottom: 1.25rem;
         }
 
         .feature-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
         }
 
         .feature-card p {
             color: var(--text-secondary);
+            font-size: 0.95rem;
             line-height: 1.6;
         }
 
-        /* User Guide */
-        .guide-nav {
+        /* Premium Badge */
+        .premium-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: white;
+            font-size: 0.7rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+            margin-left: 0.5rem;
+            vertical-align: middle;
+        }
+
+        /* Guides Section */
+        #guides {
+            background: var(--card-bg);
+        }
+
+        .guide-tabs {
             display: flex;
-            gap: 1rem;
+            gap: 0.5rem;
             margin-bottom: 2rem;
             flex-wrap: wrap;
             justify-content: center;
         }
 
         .guide-tab {
-            padding: 1rem 2rem;
-            background: var(--card-bg);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
+            padding: 0.75rem 1.5rem;
+            border-radius: 10px;
+            border: none;
+            background: var(--global-bg);
+            color: var(--text-secondary);
+            font-weight: 500;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.2s ease;
+            font-size: 0.95rem;
         }
 
         .guide-tab:hover {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(102, 126, 234, 0.1);
+            color: var(--primary-color);
         }
 
         .guide-tab.active {
-            background: var(--primary-gradient);
-            border-color: transparent;
+            background: var(--gradient-primary);
+            color: white;
         }
 
         .guide-content {
             display: none;
-            animation: fadeIn 0.5s;
+            background: var(--global-bg);
+            padding: 2rem;
+            border-radius: 16px;
         }
 
         .guide-content.active {
             display: block;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
         .guide-section {
-            background: var(--card-bg);
-            padding: 2.5rem;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
             margin-bottom: 2rem;
         }
 
         .guide-section h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            color: #667eea;
+            color: var(--primary-color);
+            margin-bottom: 0.75rem;
+            font-size: 1.15rem;
         }
 
-        .guide-section h4 {
-            font-size: 1.3rem;
-            margin: 1.5rem 0 1rem;
-            color: #f5576c;
-        }
-
-        .guide-section ul, .guide-section ol {
-            margin-left: 1.5rem;
-            color: var(--text-secondary);
-        }
-
+        .guide-section p,
         .guide-section li {
-            margin-bottom: 0.8rem;
-            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
         }
 
-        .guide-section code {
-            background: rgba(102, 126, 234, 0.2);
-            padding: 0.2rem 0.6rem;
-            border-radius: 6px;
-            font-family: 'Monaco', 'Courier New', monospace;
-            color: #4facfe;
+        .guide-section ul {
+            padding-left: 1.5rem;
         }
 
-        .tip-box {
-            background: rgba(74, 172, 254, 0.1);
-            border-left: 4px solid #4facfe;
-            padding: 1rem 1.5rem;
-            border-radius: 8px;
+        /* Pricing Section */
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .pricing-card.featured {
+            border: 2px solid var(--primary-color);
+            position: relative;
+        }
+
+        .pricing-card.featured::before {
+            content: 'RECOMMENDED';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gradient-primary);
+            color: white;
+            padding: 0.25rem 1rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+
+        .pricing-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-card .price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin: 1rem 0;
+        }
+
+        .pricing-card .price span {
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            text-align: left;
             margin: 1.5rem 0;
         }
 
-        .tip-box strong {
-            color: #4facfe;
-        }
-
-        /* Screenshots */
-        .screenshots-slider {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .screenshot-placeholder {
-            aspect-ratio: 9/16;
-            background: var(--card-bg);
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        .pricing-card li {
+            padding: 0.5rem 0;
+            color: var(--text-secondary);
             display: flex;
             align-items: center;
-            justify-content: center;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            transition: all 0.3s;
-            position: relative;
-            overflow: hidden;
+            gap: 0.5rem;
         }
 
-        .screenshot-placeholder::before {
-            content: '📱';
-            font-size: 3rem;
-            opacity: 0.3;
-            position: absolute;
+        .pricing-card li::before {
+            content: '✓';
+            color: #22c55e;
+            font-weight: bold;
         }
 
-        .screenshot-placeholder:hover {
-            transform: scale(1.05);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        /* Privacy Section */
+        #privacy {
+            background: var(--card-bg);
         }
-
-        /* Mac Screenshots */
-.screenshot-mac {
-    aspect-ratio: 16/10;
-    background: var(--card-bg);
-    border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-    transition: all 0.3s;
-    position: relative;
-    overflow: hidden;
-}
-
-.screenshot-mac::before {
-    content: '🖥️';
-    font-size: 4rem;
-    opacity: 0.3;
-    position: absolute;
-}
-
-.screenshot-mac:hover {
-    transform: scale(1.02);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-}
-
-/* iPad Screenshots */
-.screenshot-ipad {
-    aspect-ratio: 4/3;
-    background: var(--card-bg);
-    border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-    transition: all 0.3s;
-    position: relative;
-    overflow: hidden;
-}
-
-.screenshot-ipad::before {
-    content: '💻';
-    font-size: 3.5rem;
-    opacity: 0.3;
-    position: absolute;
-}
-
-.screenshot-ipad:hover {
-    transform: scale(1.05);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-}
 
         /* Footer */
         footer {
-            background: rgba(0, 0, 0, 0.3);
+            background: var(--text-primary);
+            color: white;
             padding: 3rem 5%;
             text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        footer .logo-img {
+            height: 60px;
+            margin-bottom: 1rem;
+            filter: brightness(0) invert(1);
         }
 
         footer p {
-            color: var(--text-secondary);
-        }
-
-        footer .legal-links a {
-            color: var(--text-secondary);
-            margin: 0 0.5rem;
+            color: rgba(255, 255, 255, 0.7);
             font-size: 0.9rem;
+            margin-bottom: 0.5rem;
         }
 
-        footer .legal-links a:hover {
-            color: #ffffff;
+        .legal-links {
+            margin-top: 1rem;
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .legal-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .legal-links a:hover {
+            color: white;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            .hero p { font-size: 1.1rem; }
-            nav ul { gap: 1rem; }
-            .features-grid { grid-template-columns: 1fr; }
-            .platform-badges { flex-direction: column; }
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            nav ul {
+                display: none;
+            }
+
+            .app-icon-large {
+                width: 100px;
+                height: 100px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .guide-tabs {
+                flex-direction: column;
+                align-items: stretch;
+            }
         }
+
+        /* Small Note */
+        .small-note {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 1rem;
+        }
+    
+        /* Help & User Guide */
+        .help-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .help-card {
+            background: var(--card-bg);
+            border-radius: 18px;
+            padding: 28px;
+            text-decoration: none;
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .help-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .help-card .icon {
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
+
+        .help-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 6px;
+        }
+
+        .help-card p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        .beta-tag {
+            font-size: 0.65rem;
+            background: #ef4444;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 999px;
+            margin-left: 6px;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            vertical-align: middle;
+        }
+
+    
+        /* Privacy CTA */
+        .privacy-cta {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 18px;
+            padding: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .privacy-cta-content h3 {
+            font-size: 1.25rem;
+            margin-bottom: 6px;
+        }
+
+        .privacy-cta-content p {
+            color: var(--text-secondary);
+            margin: 0;
+            max-width: 720px;
+        }
+
+        @media (max-width: 720px) {
+            .privacy-cta {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .privacy-cta .btn {
+                justify-content: center;
+            }
+        }
+
+    
+        /* Pricing (Updated: Monthly / Yearly / Lifetime) */
+        .pricing-sub {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Disable old "RECOMMENDED" badge for featured card */
+        .pricing-card.featured::before {
+            content: none !important;
+        }
+
+        .save-badge {
+            position: absolute;
+            top: -12px;
+            right: 16px;
+            background: #ec4899;
+            color: white;
+            padding: 4px 10px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            border-radius: 999px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .best-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #f97316;
+            color: white;
+            padding: 4px 12px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            border-radius: 999px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .pricing-card.lifetime {
+            border: 2px solid #22c55e;
+        }
+
+        .purchased {
+            background: #22c55e;
+            color: white;
+            padding: 0.9rem;
+            border-radius: 12px;
+            font-weight: 700;
+            margin-top: 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
     </style>
 </head>
 <body>
     <!-- Navigation -->
     <nav>
         <div class="container">
-            <div class="logo">
-                <img src="logo_finyxfin.png" alt="FinyxFin™ logo">
-                FinyxFin<span style="font-size:0.8rem; vertical-align: super;">™</span>
-            </div>
+            <a href="#" class="logo">
+                <img src="finyxlogo.png" alt="FinyxFin" class="logo-img">
+                <span class="tm">™</span>
+            </a>
             <ul>
                 <li><a href="#features">Features</a></li>
-                <li><a href="#guide">User Guide</a></li>
-                <li><a href="#download">Download</a></li>
-                <li><a href="#support">Support</a></li>
-                <li><a href="#privacy">Privacy</a></li>
+                <li><a href="#guides">Guides</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="privacy.html">Privacy</a></li>
                 <li><a href="terms.html">Terms</a></li>
             </ul>
         </div>
@@ -550,19 +700,15 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <img src="logo_finyxfin.png" alt="FinyxFin™" class="app-icon-large">
-            <h1>Transforming your finances</h1>
-            <p>FinyxFin<span style="font-size:0.8rem; vertical-align: super;">™</span> is your all-in-one personal finance companion for macOS, iPhone, and iPad. Track expenses, manage investments, achieve goals, and take control of your financial life.</p>
-            
-            <div class="platform-badges">
-                <div class="badge">🖥️ macOS</div>
-                <div class="badge">📱 iPhone</div>
-                <div class="badge">💻 iPad</div>
-            </div>
-
-            <div class="cta-buttons">
-                <a href="#download" class="btn btn-primary">Download Now</a>
-                <a href="#guide" class="btn btn-secondary">View User Guide</a>
+            <img src="icon.png" alt="FinyxFin App Icon" class="app-icon-large">
+            <h1>Take Control of Your Finances</h1>
+            <p>The comprehensive personal finance app for iOS and macOS. Track expenses, manage bills, monitor investments, and achieve your financial goals — all in one beautiful app.</p>
+            <div class="hero-buttons">
+                <a href="https://apps.apple.com/app/finyxfin" class="btn btn-primary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                    Download on App Store
+                </a>
+                <a href="#features" class="btn btn-secondary">Learn More</a>
             </div>
         </div>
     </section>
@@ -571,826 +717,254 @@
     <section id="features">
         <div class="container">
             <div class="section-header">
-                <h2>Powerful Features</h2>
-                <p>Everything you need to manage your finances in one beautiful app</p>
+                <h2>Everything You Need</h2>
+                <p>Powerful features designed to simplify your financial life</p>
             </div>
-            
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">💰</div>
-                    <h3>Multi-Account Management</h3>
-                    <p>Track cash, bank accounts, credit cards, digital wallets, and investments all in one place. Switch between accounts seamlessly.</p>
+                    <h3>Transaction Tracking</h3>
+                    <p>Log income and expenses with smart categorization, tags, and notes. Import bank statements via CSV.</p>
                 </div>
-
                 <div class="feature-card">
                     <div class="feature-icon">📊</div>
-                    <h3>Smart Transaction Tracking</h3>
-                    <p>Log income and expenses with customizable categories. Add notes, receipts, and tags for detailed record-keeping.</p>
+                    <h3>Visual Analytics</h3>
+                    <p>Beautiful charts and insights to understand your spending patterns and financial health.</p>
                 </div>
-
+                <div class="feature-card">
+                    <div class="feature-icon">📅</div>
+                    <h3>Bill Management</h3>
+                    <p>Never miss a payment with bill tracking, due date reminders, and recurring payment support.</p>
+                </div>
                 <div class="feature-card">
                     <div class="feature-icon">🎯</div>
                     <h3>Financial Goals</h3>
-                    <p>Set savings goals, track progress, and celebrate milestones. Stay motivated with visual progress indicators.</p>
+                    <p>Set savings targets and track progress toward your dreams — vacation, emergency fund, or new car.</p>
                 </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">📈</div>
-                    <h3>Investment Portfolio</h3>
-                    <p>Monitor your investments, track returns, and manage your portfolio with real-time insights and performance analytics.</p>
-                </div>
-
                 <div class="feature-card">
                     <div class="feature-icon">💳</div>
-                    <h3>Bill Management</h3>
-                    <p>Never miss a payment. Set up recurring bills, get reminders, and track payment history effortlessly.</p>
+                    <h3>Multi-Account Support</h3>
+                    <p>Manage checking, savings, credit cards, and cash accounts all in one place.</p>
                 </div>
-
                 <div class="feature-card">
-                    <div class="feature-icon">📝</div>
-                    <h3>Budget Planning</h3>
-                    <p>Create category-based budgets with spending alerts. Stay on track and avoid overspending with smart notifications.</p>
+                    <div class="feature-icon">📈</div>
+                    <h3>Investment Tracking</h3>
+                    <p>Monitor your portfolio with FIFO lot management, dividend tracking, and performance analytics.</p>
                 </div>
-
                 <div class="feature-card">
                     <div class="feature-icon">🏦</div>
-                    <h3>Loan Tracking</h3>
-                    <p>Manage loans and debts with payment schedules. Track interest, principal, and see your progress toward becoming debt-free.</p>
+                    <h3>Loan Management</h3>
+                    <p>Track mortgages, car loans, and personal loans with payment schedules and interest calculations.</p>
                 </div>
-
+                <!--div class="feature-card">
+                    <div class="feature-icon">📝</div>
+                    <h3>50/30/20 Budgeting</h3>
+                    <p>Automatic budget allocation following the proven 50/30/20 rule for needs, wants, and savings.</p>
+                </div -->
                 <div class="feature-card">
-                    <div class="feature-icon">📱</div>
-                    <h3>Sync Across Devices</h3>
-                    <p>Access your financial data on Mac, iPhone, and iPad. Seamless synchronization keeps everything up to date.</p>
+                    <div class="feature-icon">🔔</div>
+                    <h3>Apple Reminders Sync<!--span class="premium-badge">PREMIUM</span --></h3>
+                    <p>Sync bills and reminders to Apple Reminders for Siri, Apple Watch, and widget access.</p>
                 </div>
-
                 <div class="feature-card">
-                    <div class="feature-icon">🌙</div>
-                    <h3>Beautiful Design</h3>
-                    <p>Modern interface with dark mode support. Enjoy smooth animations and an intuitive user experience.</p>
+                    <div class="feature-icon">☁️</div>
+                    <h3>iCloud Sync<!--span class="premium-badge">PREMIUM</span --></h3>
+                    <p>Seamlessly sync your data across all your Apple devices with end-to-end encryption.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔐</div>
+                    <h3>Privacy First</h3>
+                    <p>Your data stays on your devices and in your iCloud account. No third-party accounts required.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💾</div>
+                    <h3>Backups & Restore</h3>
+<p>Backup and export your data for safekeeping. Restore options are available depending on device and iCloud settings.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- User Guide Section -->
-    <section id="guide">
-        <div class="container">
-            <div class="section-header">
-                <h2>User Guide</h2>
-                <p>Learn how to make the most of FinyxFin</p>
-            </div>
-
-            <div class="guide-nav">
-                <div class="guide-tab active" onclick="showGuide('getting-started')">Getting Started</div>
-                <div class="guide-tab" onclick="showGuide('accounts')">Accounts</div>
-                <div class="guide-tab" onclick="showGuide('transactions')">Transactions</div>
-                <div class="guide-tab" onclick="showGuide('goals')">Goals & Budgets</div>
-                <div class="guide-tab" onclick="showGuide('advanced')">Advanced Features</div>
-            </div>
-
-            <!-- Getting Started -->
-            <div id="getting-started" class="guide-content active">
-                <div class="guide-section">
-                    <h3>🚀 Welcome to FinyxFin</h3>
-                    <p>FinyxFin is your comprehensive personal finance management solution. This guide will help you get started and make the most of all features.</p>
-                    
-                    <h4>Quick Setup</h4>
-                    <ol>
-                        <li><strong>Launch FinyxFin</strong> on your Mac, iPhone, or iPad</li>
-                        <li><strong>Create your first account</strong> by tapping the "+" button</li>
-                        <li><strong>Choose account type</strong> (Cash, Bank, Credit Card, Digital Wallet, or Investment)</li>
-                        <li><strong>Set your initial balance</strong> and customize with an icon and color</li>
-                        <li><strong>Start tracking</strong> your financial journey!</li>
-                    </ol>
-
-                    <div class="tip-box">
-                        <strong>💡 Pro Tip:</strong> Start by adding all your existing accounts to get a complete picture of your finances. You can always add more accounts later.
-                    </div>
-
-                    <h4>Dashboard Overview</h4>
-                    <p>Your dashboard provides a quick snapshot of your financial health:</p>
-                    <ul>
-                        <li><strong>Total Balance:</strong> Combined balance across all active accounts</li>
-                        <li><strong>Monthly Summary:</strong> Income vs. expenses for the current month</li>
-                        <li><strong>Quick Stats:</strong> Top spending categories and recent transactions</li>
-                        <li><strong>Goals Progress:</strong> Visual indicators of your savings goals</li>
-                        <li><strong>Upcoming Bills:</strong> Reminders for bills due soon</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Accounts Guide -->
-            <div id="accounts" class="guide-content">
-                <div class="guide-section">
-                    <h3>💰 Managing Accounts</h3>
-                    
-                    <h4>Account Types</h4>
-                    <p>FinyxFin supports five different account types to match your real-world finances:</p>
-                    <ul>
-                        <li><strong>💵 Cash:</strong> Physical money, petty cash</li>
-                        <li><strong>🏦 Bank:</strong> Checking and savings accounts</li>
-                        <li><strong>💳 Credit Card:</strong> Credit cards and lines of credit</li>
-                        <li><strong>📱 Digital Wallet:</strong> PayPal, Venmo, Apple Pay balance</li>
-                        <li><strong>📈 Investment:</strong> Stocks, bonds, retirement accounts</li>
-                    </ul>
-
-                    <h4>Creating an Account</h4>
-                    <ol>
-                        <li>Tap the <code>+</code> button in the Accounts section</li>
-                        <li>Enter a descriptive name (e.g., "Chase Checking", "Emergency Fund")</li>
-                        <li>Select the account type</li>
-                        <li>Set the current balance</li>
-                        <li>Choose your preferred currency (default: USD)</li>
-                        <li>Customize with an icon and color for easy identification</li>
-                        <li>Tap <code>Save</code></li>
-                    </ol>
-
-                    <h4>Editing & Managing Accounts</h4>
-                    <ul>
-                        <li><strong>Edit:</strong> Tap on any account to view details and make changes</li>
-                        <li><strong>Deactivate:</strong> Turn off accounts you no longer use without losing history</li>
-                        <li><strong>View History:</strong> See all transactions associated with an account</li>
-                        <li><strong>Balance Adjustment:</strong> Manual corrections for reconciliation</li>
-                    </ul>
-
-                    <div class="tip-box">
-                        <strong>💡 Best Practice:</strong> Use distinct colors and icons for each account type to quickly identify them at a glance. Keep account names clear and consistent.
-                    </div>
-                </div>
-            </div>
-
-            <!-- Transactions Guide -->
-            <div id="transactions" class="guide-content">
-                <div class="guide-section">
-                    <h3>📊 Tracking Transactions</h3>
-                    
-                    <h4>Adding a Transaction</h4>
-                    <ol>
-                        <li>Tap the <code>+ New Transaction</code> button</li>
-                        <li>Select <strong>Income</strong> or <strong>Expense</strong></li>
-                        <li>Choose the account to record the transaction from</li>
-                        <li>Enter the amount</li>
-                        <li>Select or create a category</li>
-                        <li>Add a description (optional but recommended)</li>
-                        <li>Set the date (defaults to today)</li>
-                        <li>Attach a photo of receipt (optional)</li>
-                        <li>Add tags for better organization (optional)</li>
-                        <li>Tap <code>Save</code></li>
-                    </ol>
-
-                    <h4>Transaction Categories</h4>
-                    <p>Built-in categories include:</p>
-                    <ul>
-                        <li><strong>🍔 Food & Dining:</strong> Groceries, restaurants, coffee shops</li>
-                        <li><strong>🚗 Transportation:</strong> Gas, public transit, ride-sharing</li>
-                        <li><strong>🛍️ Shopping:</strong> Clothing, electronics, household items</li>
-                        <li><strong>🎬 Entertainment:</strong> Movies, concerts, hobbies</li>
-                        <li><strong>📄 Bills & Utilities:</strong> Rent, electricity, internet</li>
-                        <li><strong>❤️ Healthcare:</strong> Medical expenses, pharmacy, insurance</li>
-                        <li><strong>📚 Education:</strong> Tuition, books, courses</li>
-                        <li><strong>💰 Salary:</strong> Paychecks, bonuses</li>
-                        <li><strong>💼 Business:</strong> Business income and expenses</li>
-                        <li><strong>📈 Investment:</strong> Dividends, capital gains</li>
-                        <li><strong>🎁 Gift:</strong> Gifts given or received</li>
-                    </ul>
-
-                    <h4>Custom Categories</h4>
-                    <p>Create your own categories to match your unique spending patterns:</p>
-                    <ol>
-                        <li>Go to Settings → Categories</li>
-                        <li>Tap <code>Add Category</code></li>
-                        <li>Name your category</li>
-                        <li>Choose an icon and color</li>
-                        <li>Select type (Income or Expense)</li>
-                    </ol>
-
-                    <h4>Editing & Deleting Transactions</h4>
-                    <ul>
-                        <li><strong>Edit:</strong> Tap on any transaction to modify details</li>
-                        <li><strong>Delete:</strong> Swipe left on a transaction and tap Delete</li>
-                        <li><strong>Duplicate:</strong> Long press to create a copy for recurring expenses</li>
-                        <li><strong>Search:</strong> Use the search bar to find specific transactions</li>
-                        <li><strong>Filter:</strong> Filter by date range, category, or account</li>
-                    </ul>
-
-                    <div class="tip-box">
-                        <strong>💡 Pro Tip:</strong> Log transactions as they happen for the most accurate financial picture. Use the quick-add feature for faster entry of frequent purchases.
-                    </div>
-                </div>
-            </div>
-
-            <!-- Goals & Budgets Guide -->
-            <div id="goals" class="guide-content">
-                <div class="guide-section">
-                    <h3>🎯 Goals & Budget Management</h3>
-                    
-                    <h4>Creating Financial Goals</h4>
-                    <ol>
-                        <li>Navigate to the Goals section</li>
-                        <li>Tap <code>New Goal</code></li>
-                        <li>Give your goal a name (e.g., "Emergency Fund", "Vacation to Japan")</li>
-                        <li>Set your target amount</li>
-                        <li>Choose a target date</li>
-                        <li>Add an initial contribution (optional)</li>
-                        <li>Select an icon and color</li>
-                        <li>Tap <code>Create Goal</code></li>
-                    </ol>
-
-                    <h4>Contributing to Goals</h4>
-                    <ul>
-                        <li>Tap on a goal to view details</li>
-                        <li>Tap <code>Add Contribution</code></li>
-                        <li>Enter the amount you're contributing</li>
-                        <li>Track your progress with the visual indicator</li>
-                    </ul>
-
-                    <h4>Setting Up Budgets</h4>
-                    <ol>
-                        <li>Go to the Budgets section</li>
-                        <li>Tap <code>Create Budget</code></li>
-                        <li>Select a category to budget for</li>
-                        <li>Set your spending limit for the month</li>
-                        <li>Choose alert thresholds (e.g., 80%, 100%)</li>
-                        <li>Tap <code>Save</code></li>
-                    </ol>
-
-                    <h4>Monitoring Budgets</h4>
-                    <ul>
-                        <li><strong>Visual Progress:</strong> Color-coded bars show spending vs. budget</li>
-                        <li><strong>Alerts:</strong> Receive notifications when approaching limits</li>
-                        <li><strong>Monthly Reset:</strong> Budgets automatically reset each month</li>
-                        <li><strong>Historical Data:</strong> Compare month-to-month performance</li>
-                    </ul>
-
-                    <h4>Goal Strategies</h4>
-                    <div class="tip-box">
-                        <strong>💡 Smart Strategy:</strong> Set up multiple goals with different priorities:
-                        <ul style="margin-top: 0.5rem;">
-                            <li><strong>Emergency Fund:</strong> 3-6 months of expenses (High Priority)</li>
-                            <li><strong>Debt Payoff:</strong> Target high-interest debts first</li>
-                            <li><strong>Retirement:</strong> Long-term wealth building</li>
-                            <li><strong>Short-term:</strong> Vacation, gadgets, experiences</li>
-                        </ul>
-                    </div>
-
-                    <h4>Budget Categories</h4>
-                    <p>Common budget categories to consider:</p>
-                    <ul>
-                        <li><strong>Essential:</strong> Housing, utilities, groceries (50-60% of income)</li>
-                        <li><strong>Transportation:</strong> Gas, maintenance, insurance</li>
-                        <li><strong>Savings:</strong> Emergency fund, retirement (20% of income)</li>
-                        <li><strong>Discretionary:</strong> Entertainment, dining out (20-30%)</li>
-                        <li><strong>Debt Repayment:</strong> Credit cards, loans</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Advanced Features Guide -->
-            <div id="advanced" class="guide-content">
-                <div class="guide-section">
-                    <h3>🚀 Advanced Features</h3>
-                    
-                    <h4>Investment Portfolio Management</h4>
-                    <p>Track and manage your investment portfolio with detailed analytics:</p>
-                    
-                    <h5>Adding Investments</h5>
-                    <ol>
-                        <li>Navigate to Investments section</li>
-                        <li>Tap <code>Add Investment</code></li>
-                        <li>Enter investment name (e.g., "Apple Stock", "S&P 500 ETF")</li>
-                        <li>Select investment type (Stocks, Bonds, Mutual Funds, ETF, Crypto, Real Estate)</li>
-                        <li>Enter purchase details:
-                            <ul>
-                                <li>Quantity/Shares</li>
-                                <li>Purchase price</li>
-                                <li>Purchase date</li>
-                                <li>Fees/commissions</li>
-                            </ul>
-                        </li>
-                        <li>Link to an investment account</li>
-                        <li>Save and track performance</li>
-                    </ol>
-
-                    <h5>Investment Analytics</h5>
-                    <ul>
-                        <li><strong>Portfolio Overview:</strong> Total value, gains/losses, and allocation</li>
-                        <li><strong>Performance Tracking:</strong> ROI and percentage returns</li>
-                        <li><strong>Asset Allocation:</strong> Pie charts showing diversification</li>
-                        <li><strong>Historical Performance:</strong> Track value over time</li>
-                        <li><strong>Dividend Tracking:</strong> Record dividend income automatically</li>
-                    </ul>
-
-                    <div class="tip-box">
-                        <strong>💡 Investment Tip:</strong> Regularly update investment values to track accurate performance. Set a weekly or monthly reminder to update prices.
-                    </div>
-
-                    <h4>Loan & Debt Management</h4>
-                    <p>Comprehensive loan tracking and payment planning:</p>
-                    
-                    <h5>Creating a Loan</h5>
-                    <ol>
-                        <li>Go to Loans section</li>
-                        <li>Tap <code>Add Loan</code></li>
-                        <li>Enter loan details:
-                            <ul>
-                                <li>Loan name (e.g., "Student Loan", "Car Loan")</li>
-                                <li>Principal amount</li>
-                                <li>Interest rate (annual)</li>
-                                <li>Loan term (months/years)</li>
-                                <li>Start date</li>
-                            </ul>
-                        </li>
-                        <li>Choose loan type (Personal, Mortgage, Auto, Student, Business)</li>
-                        <li>Set payment frequency (Monthly, Bi-weekly, Weekly)</li>
-                        <li>Review payment schedule and total interest</li>
-                    </ol>
-
-                    <h5>Loan Features</h5>
-                    <ul>
-                        <li><strong>Amortization Schedule:</strong> See principal vs. interest breakdown</li>
-                        <li><strong>Payment Tracking:</strong> Mark payments as completed</li>
-                        <li><strong>Extra Payments:</strong> Calculate impact of additional payments</li>
-                        <li><strong>Payoff Projection:</strong> Estimated payoff date and savings</li>
-                        <li><strong>Multiple Loans:</strong> Compare and prioritize debt payoff strategies</li>
-                    </ul>
-
-                    <h4>Bill Management & Reminders</h4>
-                    <p>Never miss a payment with smart bill tracking:</p>
-                    
-                    <h5>Setting Up Bills</h5>
-                    <ol>
-                        <li>Navigate to Bills section</li>
-                        <li>Tap <code>Add Bill</code></li>
-                        <li>Enter bill information:
-                            <ul>
-                                <li>Bill name (e.g., "Electric", "Netflix", "Rent")</li>
-                                <li>Amount (can be variable or fixed)</li>
-                                <li>Due date</li>
-                                <li>Category</li>
-                            </ul>
-                        </li>
-                        <li>Set recurring pattern:
-                            <ul>
-                                <li>Monthly (most common)</li>
-                                <li>Weekly</li>
-                                <li>Bi-weekly</li>
-                                <li>Quarterly</li>
-                                <li>Yearly</li>
-                                <li>Custom</li>
-                            </ul>
-                        </li>
-                        <li>Link to payment account</li>
-                        <li>Enable reminder notifications</li>
-                    </ol>
-
-                    <h5>Bill Features</h5>
-                    <ul>
-                        <li><strong>Payment History:</strong> Track when bills were paid</li>
-                        <li><strong>Upcoming Bills:</strong> Dashboard showing bills due soon</li>
-                        <li><strong>Auto-record:</strong> Automatically create transactions when marked paid</li>
-                        <li><strong>Variable Bills:</strong> Update amounts for utilities that vary</li>
-                        <li><strong>Notifications:</strong> Custom reminders (1 day, 3 days, 1 week before)</li>
-                    </ul>
-
-                    <h4>Reports & Analytics</h4>
-                    <p>Gain insights into your financial patterns:</p>
-                    
-                    <h5>Available Reports</h5>
-                    <ul>
-                        <li><strong>Spending by Category:</strong> Pie charts and bar graphs showing where money goes</li>
-                        <li><strong>Income vs. Expenses:</strong> Monthly comparison trends</li>
-                        <li><strong>Net Worth Tracker:</strong> Track total assets minus liabilities over time</li>
-                        <li><strong>Cash Flow Analysis:</strong> Detailed income and expense flow</li>
-                        <li><strong>Budget Performance:</strong> Compare actual spending vs. budgeted amounts</li>
-                        <li><strong>Goal Progress:</strong> Track savings goal achievement rates</li>
-                        <li><strong>Account Balances:</strong> Historical balance trends for all accounts</li>
-                    </ul>
-
-                    <!--h5>Customizing Reports</h5>
-                    <ul>
-                        <li>Select date ranges (this month, last 3 months, this year, custom)</li>
-                        <li>Filter by accounts, categories, or tags</li>
-                        <li>Export reports as PDF or CSV</li>
-                        <li>Share reports via email or messaging</li>
-                </ul -->
-
-                    <!--<h4>Tags & Custom Organization</h4>
-                    <p>Create your own organizational system:</p>
-                    <ul>
-                        <li><strong>Transaction Tags:</strong> Add tags like #business, #tax-deductible, #reimbursable</li>
-                        <li><strong>Tag Filtering:</strong> Quickly find all transactions with specific tags</li>
-                        <li><strong>Multi-tagging:</strong> Apply multiple tags to a single transaction</li>
-                        <li><strong>Tag Reports:</strong> Generate reports filtered by tags</li>
-                        <li><strong>Color Coding:</strong> Assign colors to tags for visual organization</li>
-                    </ul> -->
-
-                    <h4>Data Management</h4>
-                    
-                    <h5>Export & Backup</h5>
-                    <ul>
-                        <li><strong>CSV Export:</strong> Export transactions for use in spreadsheets</li>
-                    </ul>
-
-                    <h5>Import Data</h5>
-                    <ul>
-                        <li><strong>CSV Import:</strong> Import bank statements or data from other apps</li>
-                        <li><strong>Bulk Import:</strong> Add multiple transactions at once</li>
-                    </ul>
-
-                    <h4>Settings & Customization</h4>
-                    
-                    <h5>Preferences</h5>
-                    <ul>
-                        <li><strong>Default Currency:</strong> Set your primary currency</li>
-                        <li><strong>Date Format:</strong> Customize date display preferences</li>
-                       <!-- <li><strong>First Day of Week:</strong> Choose Sunday or Monday</li> -->
-                        <li><strong>Notification Settings:</strong> Customize reminder frequency and timing</li>
-                        <li><strong>Security:</strong> Enable Face ID/Touch ID protection</li>
-                    </ul>
-
-                    <h5>Appearance</h5>
-                    <ul>
-                        <li><strong>Theme:</strong> Light, Dark, or Auto (follows system)</li>
-                        <li><strong>Accent Colors:</strong> Customize app color scheme</li>
-                        <li><strong>Dashboard Layout:</strong> Rearrange widgets and cards</li>
-                        <li><strong>Chart Types:</strong> Choose preferred visualization styles</li>
-                    </ul>
-
-                    <div class="tip-box">
-                        <strong>💡 Power User Tip:</strong> Use keyboard shortcuts on macOS for lightning-fast entry:
-                        <ul style="margin-top: 0.5rem;">
-                            <li><code>⌘ + N</code> - New transaction</li>
-                            <li><code>⌘ + B</code> - New budget</li>
-                            <li><code>⌘ + G</code> - New goal</li>
-                            <li><code>⌘ + F</code> - Search transactions</li>
-                            <li><code>⌘ + ,</code> - Open settings</li>
-                        </ul>
-                    </div>
-
-                    <!--<h4>Multi-Currency Support</h4>
-                    <p>Perfect for international users and travelers:</p>
-                    <ul>
-                        <li>Create accounts in different currencies</li>
-                        <li>Automatic conversion for reports (uses latest rates)</li>
-                        <li>Track foreign transactions accurately</li>
-                        <li>View balances in home currency or native account currency</li>
-                    </ul> -->
-
-                    <h4>Recurring Transactions and Bills</h4>
-                    <p>Automate your regular income and expenses:</p>
-                    <ol>
-                        <li>Create a transaction as usual</li>
-                        <li>Enable "Make Recurring"</li>
-                        <li>Set frequency (daily, weekly, monthly, yearly)</li>
-                        <li>Choose end date or make it ongoing</li>
-                        <li>FinyxFin will automatically create these transactions on schedule</li>
-                    </ol>
-
-                    <h4>Privacy & Security</h4>
-                    <p>Your financial data is protected:</p>
-                    <ul>
-                        <li><strong>Local Data:</strong> All data stored locally on your devices</li>
-                        <li><strong>iCloud Sync:</strong> End-to-end encrypted cloud sync (optional)</li>
-                        <li><strong>Biometric Lock:</strong> Face ID/Touch ID protection</li>
-                        <li><strong>Auto-lock:</strong> App locks after period of inactivity</li>
-                        <li><strong>No Ads:</strong> No third-party tracking or advertisements</li>
-                        <li><strong>No Account Required:</strong> Use the app without creating an online account</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Screenshots Section -->
-  
-<section id="screenshots" style="background: rgba(255, 255, 255, 0.02);">
+    <!-- Guides Section -->
+    <section id="guides">
     <div class="container">
         <div class="section-header">
-            <h2>Beautiful Interface</h2>
-            <p>Designed for simplicity and elegance across all your devices</p>
-        </div>
-        
-        <!-- Mac Screenshots -->
-        <h3 style="text-align: center; margin: 3rem 0 2rem; color: #667eea;">macOS</h3>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem; margin-bottom: 4rem;">
-            <div class="screenshot-mac">
-                <span>Dashboard - macOS<br>Coming Soon</span>
-            </div>
-            <div class="screenshot-mac">
-                <span>Transactions - macOS<br>Coming Soon</span>
-            </div>
-            <div class="screenshot-mac">
-                <span>Goals & Budgets - macOS<br>Coming Soon</span>
-            </div>
-            <div class="screenshot-mac">
-                <span>Investment Portfolio - macOS<br>Coming Soon</span>
-            </div>
+            <h2>Help &amp; User Guide</h2>
+            <p>Step-by-step guides for every feature in FinyxFin.</p>
         </div>
 
-        <!-- iPhone Screenshots -->
-        <h3 style="text-align: center; margin: 3rem 0 2rem; color: #f5576c;">iPhone</h3>
-        <div class="screenshots-slider">
-            <div class="screenshot-placeholder">
-                <span>Dashboard - iPhone<br>Coming Soon</span>
-            </div>
-            <div class="screenshot-placeholder">
-                <span>Transactions - iPhone<br>Coming Soon</span>
-            </div>
-            <div class="screenshot-placeholder">
-                <span>Goals - iPhone<br>Coming Soon</span>
-            </div>
-            <div class="screenshot-placeholder">
-                <span>Portfolio - iPhone<br>Coming Soon</span>
-            </div>
-        </div>
+        <div class="help-grid">
+            <a href="help/onboarding-help.html" class="help-card">
+                <div class="icon">🚀</div>
+                <h3>Getting Started</h3>
+                <p>Onboarding, basics, and first-time setup.</p>
+            </a>
 
-        <!-- iPad Screenshots -->
-        <h3 style="text-align: center; margin: 3rem 0 2rem; color: #4facfe;">iPad</h3>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem;">
-            <div class="screenshot-ipad">
-                <span>Dashboard - iPad<br>Coming Soon</span>
-            </div>
-            <div class="screenshot-ipad">
-                <span>Transactions - iPad<br>Coming Soon</span>
-            </div>
-            <div class="screenshot-ipad">
-                <span>Goals & Budgets - iPad<br>Coming Soon</span>
-            </div>
-            <div class="screenshot-ipad">
-                <span>Portfolio - iPad<br>Coming Soon</span>
-            </div>
+            <a href="help/accounts-help.html" class="help-card">
+                <div class="icon">🏦</div>
+                <h3>Accounts</h3>
+                <p>Create, manage, archive, and organize accounts.</p>
+            </a>
+
+            <a href="help/transactions-help.html" class="help-card">
+                <div class="icon">💳</div>
+                <h3>Transactions</h3>
+                <p>Add, edit, recurring entries, and advanced filters.</p>
+            </a>
+
+            <a href="help/bills-help.html" class="help-card">
+                <div class="icon">🧾</div>
+                <h3>Bills</h3>
+                <p>Track upcoming bills and recurring payments.</p>
+            </a>
+
+            <a href="help/goals-help.html" class="help-card">
+                <div class="icon">🎯</div>
+                <h3>Goals</h3>
+                <p>Set financial goals and track progress.</p>
+            </a>
+
+            <a href="help/loans-help.html" class="help-card">
+                <div class="icon">📉</div>
+                <h3>Loans</h3>
+                <p>Loan setup, repayments, and balance tracking.</p>
+            </a>
+
+            <a href="help/investments-help.html" class="help-card">
+                <div class="icon">📊</div>
+                <h3>Investments <span class="beta-tag">BETA</span></h3>
+                <p>Track holdings, lots, and performance.</p>
+            </a>
+
+            <a href="help/reminders-help.html" class="help-card">
+                <div class="icon">⏰</div>
+                <h3>Reminders</h3>
+                <p>Apple Reminders integration and alerts.</p>
+            </a>
+
+            <a href="help/backup-restore-help.html" class="help-card">
+                <div class="icon">☁️</div>
+                <h3>Backup &amp; Restore</h3>
+                <p>Protect and restore your financial data.</p>
+            </a>
         </div>
     </div>
 </section>
 
-    <!-- Download Section -->
-    <section id="download">
-        <div class="container">
-            <div class="section-header">
-                <h2>Download FinyxFin</h2>
-                <p>Available for macOS, iPhone, and iPad</p>
-            </div>
-
-            <div style="text-align: center; max-width: 600px; margin: 0 auto;">
-                <div class="tip-box" style="margin-bottom: 2rem;">
-                    <strong>📱 System Requirements:</strong>
-                    <ul style="text-align: left; margin-top: 1rem;">
-                        <li><strong>macOS:</strong> macOS 13.0 (Ventura) or later</li>
-                        <li><strong>iPhone:</strong> iOS 16.0 or later</li>
-                        <li><strong>iPad:</strong> iPadOS 16.0 or later</li>
-                    </ul>
-                </div>
-
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
-                    <div class="feature-card" style="text-align: center;">
-                        <div style="font-size: 3rem; margin-bottom: 1rem;">🖥️</div>
-                        <h3>macOS</h3>
-                        <p style="margin-bottom: 1rem;">Download for Mac</p>
-                       <a href="#" class="btn btn-primary" onclick="alert('Coming soon to the App Store! Sign up for updates.'); return false;">
-    Mac App Store (Coming Soon)
-</a>
-                    </div>
-
-                    <div class="feature-card" style="text-align: center;">
-                        <div style="font-size: 3rem; margin-bottom: 1rem;">📱</div>
-                        <h3>iOS</h3>
-                        <p style="margin-bottom: 1rem;">Download for iPhone & iPad</p>
-                        <a href="#" class="btn btn-primary" onclick="alert('Coming soon to the App Store! Sign up for updates.'); return false;">
-    iOS App Store (Coming Soon)
-</a>
-                    </div>
-                </div>
-
-                <p style="color: var(--text-secondary); margin-top: 2rem;">
-                    <strong>Free to Download</strong> • One-time purchase unlocks all features across all devices
-                </p>
-            </div>
+    <!-- Pricing Section -->
+<section id="pricing">
+    <div class="container">
+        <div class="section-header">
+            <h2>Simple, Transparent Pricing</h2>
+            <p>Unlock premium features with flexible plans</p>
         </div>
-    </section>
 
-    <!-- Support Section -->
-    <section id="support" style="background: rgba(255, 255, 255, 0.02);">
-        <div class="container">
-            <div class="section-header">
-                <h2>Support & FAQ</h2>
-                <p>Need help? We're here for you</p>
+        <div class="pricing-cards">
+
+            <!-- Monthly -->
+            <div class="pricing-card">
+                <h3>Premium Monthly</h3>
+                <div class="price">$1.99 <span>/month</span></div>
+                <p class="pricing-sub">Unlock all premium features with a monthly subscription</p>
+
+                <ul>
+                    <li>iCloud sync across devices</li>
+                    <li>Apple Reminders integration</li>
+                    <li>Investments & analytics</li>
+                    <li>Unlimited CSV import/export</li>
+                    <li>All future premium features</li>
+                </ul>
+
+                <a href="https://apps.apple.com/app/finyxfin"
+                   class="btn btn-primary"
+                   style="width: 100%; justify-content: center;">
+                    Subscribe
+                </a>
             </div>
 
-            <div style="max-width: 800px; margin: 0 auto;">
-                <div class="guide-section">
-                    <h4>Frequently Asked Questions</h4>
-                    
-                    <p><strong>Q: Is my financial data secure?</strong></p>
-                    <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
-                        A: Yes! All your data is stored locally on your devices. Optional iCloud sync uses end-to-end encryption. We never see or have access to your financial information.
-                    </p>
+            <!-- Yearly -->
+            <div class="pricing-card featured">
+                <div class="save-badge">Save 37%</div>
 
-                    <p><strong>Q: Does FinyxFin sync across devices?</strong></p>
-                    <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
-                        A: Yes, FinyxFin uses iCloud to seamlessly sync your data across your Mac, iPhone, and iPad. All your information stays current on every device.
-                    </p>
+                <h3>Premium Yearly</h3>
+                <div class="price">$14.99 <span>/year</span></div>
+                <p class="pricing-sub">Best value with annual billing</p>
 
-                    <p><strong>Q: Can I import data from other apps?</strong></p>
-                    <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
-                        A: Yes, FinyxFin supports CSV import for transactions. You can import bank statements and data from other finance apps.
-                    </p>
+                <ul>
+                    <li>Everything in Monthly</li>
+                    <li>Lower effective monthly cost</li>
+                    <li>One annual payment</li>
+                </ul>
 
-                    <p><strong>Q: Is there a subscription fee?</strong></p>
-                    <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
-                        A: FinyxFin operates on a simple monthly subscription model. One affordable fee gives you access across all three platforms - macOS, iPhone, and iPad.
-                    </p>
-
-
-                    <p><strong>Q: Does FinyxFin connect to my bank?</strong></p>
-                    <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
-                        A: FinyxFin focuses on manual entry and privacy. It does not connect directly to banks, giving you complete control and security over your financial data.
-                    </p>
-                </div>
-
-                <div class="guide-section" style="text-align: center;">
-                    <h4>Contact Support</h4>
-                    <p style="margin-bottom: 1.5rem;">Can't find what you're looking for? Get in touch!</p>
-                    <a href="mailto:support@finyxfin.app" class="btn btn-primary">Email Support</a>
-                </div>
+                <a href="https://apps.apple.com/app/finyxfin"
+                   class="btn btn-primary"
+                   style="width: 100%; justify-content: center;">
+                    Subscribe
+                </a>
             </div>
+
+            <!-- Lifetime -->
+            <div class="pricing-card lifetime">
+                <div class="best-badge">Best Value</div>
+
+                <h3>Lifetime Access</h3>
+                <div class="price">$24.99</div>
+               <p>“Lifetime access” refers to access for the lifetime of the App as offered and maintained, not a guarantee of perpetual availability or future features.</p>
+
+                <ul>
+                    <li>All current premium features</li>
+                    <li>All future premium features</li>
+                    <li>No subscriptions</li>
+                    <li>Pay once, use forever</li>
+                </ul>
+
+                <a href="https://apps.apple.com/app/finyxfin"
+   class="btn btn-primary"
+   style="width: 100%; justify-content: center;">
+    Buy Lifetime
+</a>
+            </div>
+
         </div>
-    </section>
-    <!-- NEW: Privacy Policy Section (converted from your in-app SwiftUI policy) -->
+
+        <p class="small-note" style="text-align: center; margin-top: 2rem;">
+            Prices shown in USD. Final pricing may vary by region and App Store taxes.
+        </p>
+    </div>
+</section>
+
+    <!-- Privacy Section -->
     <section id="privacy">
-        <div class="container">
-            <div class="section-header">
-                <h2>Privacy Policy</h2>
-                <p>Last updated: January 12, 2025</p>
-            </div>
-
-            <div class="guide-section">
-                <h3>In Short</h3>
-                <ul>
-                    <li><strong>Your data stays on your device.</strong> FinyxFin stores info locally using SwiftData—unless you enable iCloud sync.</li>
-                    <li><strong>We can't see your financial information.</strong> We do not collect, transmit, or access your personal financial data.</li>
-                    <li><strong>No tracking, no ads, no data selling.</strong> We do not share or monetize personal data.</li>
-                    <li><strong>Works offline.</strong> You can use the app without internet access; iCloud sync is optional.</li>
-                    <li><strong>You control everything.</strong> Export, delete, or manage your data anytime.</li>
-                </ul>
-            </div>
-
-            <div class="guide-section">
-                <h3>Data Storage</h3>
-                <p>All financial data created in FinyxFin is stored locally on your device using SwiftData. We do not collect, store, or transmit your data to our servers. If you choose to enable iCloud sync, your data will sync via Apple's iCloud infrastructure and remains encrypted in transit and at rest.</p>
-            </div>
-
-            <div class="guide-section">
-                <h3>What Data You Store</h3>
-                <p>FinyxFin stores the following data on your device when you create it:</p>
-                <ul>
-                    <li>Financial accounts and balances</li>
-                    <li>Income and expense transactions</li>
-                    <li>Bills and payment schedules</li>
-                    <li>Loans and payment history</li>
-                    <li>Financial goals and budgets</li>
-                    <li>Investment information</li>
-                    <li>Custom categories, tags, and notes</li>
-                </ul>
-            </div>
-
-            <div class="guide-section">
-                <h3>Security</h3>
-                <p>Your data is protected by device-level security (passcode, Face ID, Touch ID). Data stored on the device is encrypted using the operating system's encryption. Only someone with access to your unlocked device or iCloud account can access your synced data.</p>
-            </div>
-
-            <div class="guide-section">
-                <h3>iCloud Sync (Optional)</h3>
-                <p>If you enable iCloud sync, your data is synchronized across your Apple devices using Apple’s secure iCloud infrastructure. We do not have access to your iCloud data. You may disable iCloud sync at any time in the app settings.</p>
-            </div>
-
-            <div class="guide-section">
-                <h3>Import & Export</h3>
-                <p>When importing (for example CSV bank statements), files are processed locally on your device. When exporting, files are saved to a location you choose. We do not upload imported or exported data to our servers.</p>
-            </div>
-
-            <div class="guide-section">
-                <h3>What We DON'T Do</h3>
-                <ul>
-                    <li>We do not sell your data.</li>
-                    <li>We do not share data with advertisers.</li>
-                    <li>We do not track your behaviour for analytics or marketing.</li>
-                    <li>We do not require creating an account to use the app.</li>
-                    <li>We do not use third-party trackers by default.</li>
-                </ul>
-            </div>
-
-            <div class="guide-section">
-                <h3>Your Rights</h3>
-                <p>You control your data. You can:</p>
-                <ul>
-                    <li>Access all stored data on your device</li>
-                    <li>Export data in CSV format</li>
-                    <li>Delete individual records or all data</li>
-                    <li>Disable optional features (iCloud, notifications)</li>
-                </ul>
-            </div>
-
-            <div class="guide-section">
-                <h3>Permissions</h3>
-                <p>FinyxFin may request the following permissions (optional):</p>
-                <ul>
-                    <li><strong>File Access:</strong> For importing and exporting files.</li>
-                    <li><strong>Notifications:</strong> For bill reminders (optional).</li>
-                    <li><strong>iCloud:</strong> For device sync (optional).</li>
-                </ul>
-                <p>All permissions can be revoked via system Settings.</p>
-            </div>
-
-            <div class="guide-section">
-                <h3>Contact</h3>
-                <p>If you have questions about this Privacy Policy, contact us:</p>
-                <p><a href="mailto:support@finyxfin.app">ssupport@finyxfin.app</a></p>
-                <p class="small-note">This privacy policy describes how FinyxFin handles data on your device and when you opt into sync. It does not create any third-party rights.</p>
-            </div>
+    <div class="container">
+        <div class="section-header">
+            <h2>Privacy</h2>
+            <p>FinyxFin is built for privacy-first personal finance — your data stays in your Apple ecosystem.</p>
         </div>
-    </section>
 
-    <!-- NEW: Terms of Use Section -->
-    <!--section id="terms" style="background: rgba(255,255,255,0.02);">
-        <div class="container">
-            <div class="section-header">
-                <h2>Terms of Use</h2>
-                <p>Effective date: October 12, 2025</p>
+        <div class="privacy-cta">
+            <div class="privacy-cta-content">
+                <h3>Read our Privacy Policy</h3>
+                <p>See exactly what we do (and don’t) collect, how iCloud sync works, and how you can export or delete your data anytime.</p>
             </div>
-
-            <div class="guide-section">
-                <h3>1. Acceptance</h3>
-                <p>By downloading, installing, or using FinyxFin (the “App”), you agree to these Terms of Use ("Terms"). If you do not agree, do not use the App.</p>
-            </div>
-
-            <div class="guide-section">
-                <h3>2. License</h3>
-                <p>Subject to these Terms, we grant you a limited, non-exclusive, non-transferable license to use the App on devices you own or control.</p>
-            </div>
-
-            <div class="guide-section">
-                <h3>3. User Data and Responsibility</h3>
-                <p>You are responsible for the accuracy and legality of the data you enter into the App. You control all data stored locally and can export or delete it. We are not responsible for any decisions you make based on App content.</p>
-            </div>
-
-            <div class="guide-section">
-                <h3>4. Payments & Subscriptions</h3>
-                <p>FinyxFin may offer paid features via one-time purchase or subscription through the App Store. Payments are handled by Apple and subject to Apple’s billing practices. Refunds are handled by Apple per their policies; contact Apple Support for refund requests.</p>
-            </div>
-
-            <div class="guide-section">
-                <h3>5. Intellectual Property</h3>
-                <p>The App and all content, trademarks, and software are the property of FinyxFin or its licensors. You may not copy, modify, distribute, or create derivative works without permission.</p>
-            </div>
-
-            <div class="guide-section">
-                <h3>6. Disclaimer of Warranties</h3>
-                <p>The App is provided "as is" and "as available" without warranties of any kind. We do not warrant that the App will be uninterrupted or error-free.</p>
-            </div>
-
-            <div class="guide-section">
-                <h3>7. Limitation of Liability</h3>
-                <p>To the maximum extent permitted by law, FinyxFin and its affiliates will not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of the App.</p>
-            </div>
-
-            <div class="guide-section">
-                <h3>8. Termination</h3>
-                <p>We may suspend or terminate access to the App if you violate these Terms. You can stop using the App at any time and delete it from your device.</p>
-            </div>
-
-            <div class="guide-section">
-                <h3>9. Governing Law</h3>
-                <p>These Terms are governed by the laws of the jurisdiction in which FinyxFin operates in India. Any disputes will be resolved in the appropriate courts of that jurisdiction.</p>
-            </div>
-
-            <div class="guide-section">
-                <h3>10. Changes</h3>
-                <p>We may update these Terms from time to time. We will post any changes here with an updated effective date. Continued use of the App after changes constitutes acceptance.</p>
-
-                <h4>Contact for Terms</h4>
-                <p>For questions about these Terms, contact <a href="mailto:support@finyxfin.app">support@finyxfin.app</a>.</p>
-            </div>
+            <a class="btn btn-primary" href="privacy.html" aria-label="Open Privacy Policy">
+                View Privacy Policy
+            </a>
         </div>
-</section -->
+    </div>
+</section>
 
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="logo" style="justify-content: center; margin-bottom: 1rem;">
-                <img src="logo_finyxfin.png" alt="FinyxFin™ logo">
-                FinyxFin<span style="font-size:0.8rem; vertical-align: super;">™</span>
-            </div>
+            <img src="finyxlogo.png" alt="FinyxFin" class="logo-img">
             <p>&copy; 2025 FinyxFin. All rights reserved.</p>
-            <p style="margin-top:0.25rem; font-size:0.85rem;">
-                FinyxFin<span style="font-size:0.7rem; vertical-align: super;">™</span> and the FinyxFin logo are trademarks with applications pending in India.
-            </p>
-            <div class="legal-links" style="margin-top:0.75rem;">
-                <a href="#privacy">Privacy Policy</a>
+            <p>FinyxFin™ and the FinyxFin logo are trademarks with applications pending in India.</p>
+            <div class="legal-links">
+                <a href="privacy.html">Privacy Policy</a>
                 <a href="terms.html">Terms of Use</a>
                 <a href="mailto:support@finyxfin.app">Contact Support</a>
             </div>
-            <p style="margin-top: 1rem;">Transforming your finances</p>
+            <p style="margin-top: 1.5rem; color: rgba(255,255,255,0.5); font-style: italic;">Transforming your finances</p>
         </div>
     </footer>
 
@@ -1426,17 +1000,6 @@
                 }
             });
         });
-        // Optional: allow opening privacy or terms directly via query parameter
-        (function openHashFromQuery(){
-            try {
-                const params = new URLSearchParams(location.search);
-                const open = params.get('open'); // e.g. ?open=privacy
-                if (open) {
-                    const el = document.getElementById(open);
-                    if (el) el.scrollIntoView({behavior:'smooth', block:'start'});
-                }
-            } catch(e){ /* ignore */ }
-        })();
     </script>
 </body>
 </html>
